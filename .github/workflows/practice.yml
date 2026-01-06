@@ -1,0 +1,16 @@
+name: example
+on: push
+permissions:
+    contents: write
+jobs:
+    demo:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - run: echo "Hello" >> test.txt
+            - run: |
+                git config user.name "HemaAddagarla"
+                git config user.email "hemaaddagarla6@gmail.com"
+                git add .
+                git commit -m "Update file"
+                git push
